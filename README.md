@@ -6,7 +6,18 @@ Read **_ePub_** file in Neovim!!!
 
 Currently working in progress...
 
-**_NO FUNCTION AVAILABLE CURRENTLY_**
+# Dependencies
+
+1. `cargo`: Rust package manager
+2. `bk`: TUI ePub reader
+
+Run the command below to install `bk`:
+
+```bash
+
+cargo install bk
+
+```
 
 # Special Thanks
 
