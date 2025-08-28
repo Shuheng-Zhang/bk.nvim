@@ -1,15 +1,8 @@
 local M = {
 	default = {
 		window = {
-			width = 30,
-			height = 24,
-			-- float
-			-- pined
-			mode = "float",
-			-- BL(Bottom Left)
-			-- BR(Bottom Right)
-			-- CENTER(float mode only)
-			position = "BL",
+			size = 0.4,
+			position = "BOTTOM_RIGHT",
 		},
 	},
 }
