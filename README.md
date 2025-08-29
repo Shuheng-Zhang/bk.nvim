@@ -75,6 +75,14 @@ This plugin provides commands below:
 - `Telescope bk_telescope`: select recently read file by Telescope and open the reader
 - `BkRecentClear`: Clear recently read
 
+# Screenshots
+
+![bk_input_path](./assets/bk_input_path.jpg)
+
+![bk_recent](./assets/bk_recent.jpg)
+
+![bk_reading](./assets/bk_reading.jpg)
+
 # Special Thanks
 
 [bk](https://github.com/aeosynth/bk) - A TUI application for reading ePub in termianl written in Rust
