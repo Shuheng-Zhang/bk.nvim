@@ -1,7 +1,10 @@
 local M = {
 	default = {
 		window = {
-			size = 0.4,
+			size = {
+				width = 80,
+				height = 5,
+			},
 			position = "BOTTOM_RIGHT",
 		},
 		recent = true,

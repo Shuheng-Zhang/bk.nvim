@@ -6,11 +6,18 @@ local position = {
 	BOTTOM_CENTER = "BOTTOM_CENTER",
 }
 
-local function get_win_pos(win_range_size, win_position)
+local function get_win_pos(win_size, win_position)
 	local parent_win = vim.api.nvim_list_uis()[1]
 
-	local width = math.floor(parent_win.width * win_range_size)
-	local height = math.floor(parent_win.height * win_range_size)
+	local width = 0
+	local height = 0
+	if win_size.width <= 1 and win_size.height <= 1 then
+		width = math.floor(parent_win.width * win_size.width)
+		height = math.floor(parent_win.height * win_size.height)
+	else
+		width = win_size.width
+		height = win_size.height
+	end
 
 	local win_col = 0
 	local win_row = 0
@@ -31,8 +38,8 @@ local function get_win_pos(win_range_size, win_position)
 	return width, height, win_col, win_row
 end
 
-function M.open_bk_win(win_range_size, win_position)
-	local width, height, col, row = get_win_pos(win_range_size, win_position)
+function M.open_bk_win(win_size, win_position)
+	local width, height, col, row = get_win_pos(win_size, win_position)
 
 	local opts = {
 		style = "minimal",
@@ -64,7 +71,7 @@ function M.open_bk_win(win_range_size, win_position)
 				if not vim.api.nvim_win_is_valid(BK_WINDOW) then
 					return
 				end
-				local new_width, new_height, new_col, new_row = get_win_pos(win_range_size, win_position)
+				local new_width, new_height, new_col, new_row = get_win_pos(win_size, win_position)
 				vim.api.nvim_win_set_config(BK_WINDOW, {
 					width = new_width,
 					height = new_height,

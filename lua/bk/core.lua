@@ -25,8 +25,8 @@ end
 
 local M = {}
 
-function M.bk(win_range_size, win_position, epub_path)
-	bk_window.open_bk_win(win_range_size, win_position)
+function M.bk(win_size, win_position, epub_path)
+	bk_window.open_bk_win(win_size, win_position)
 
 	local cmd = { "bk" }
 	if epub_path and epub_path ~= "" then

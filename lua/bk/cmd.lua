@@ -58,15 +58,3 @@ function M.init_cmd(config)
 end
 
 return M
-
--- M.open_bk = function(epub_path)
--- 	if not epub_path or "" ~= epub_path then
--- 		vim.notify("no ePub file path", vim.log.levels.ERROR)
--- 		return
--- 	end
---
--- 	core.bk(config.window.size, config.window.position, epub_path)
--- 	if config.recent then
--- 		handle_recent(epub_path)
--- 	end
--- end
