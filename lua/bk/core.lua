@@ -82,7 +82,10 @@ function M.add_recent(epub_path)
 		local _, w_err = file_handle:write(epub_path .. "\n")
 		if r_err then
 			vim.notify("BK_RECENT_ERR: " .. w_err, vim.log.levels.ERROR)
+			file_handle:close()
+			return
 		end
+		file_handle:flush()
 		file_handle:close()
 	end
 end

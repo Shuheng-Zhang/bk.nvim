@@ -22,7 +22,6 @@ end
 function M.init_cmd(config)
 	vim.api.nvim_create_user_command("BkReader", function(opts)
 		if #opts.fargs == 0 then
-			-- require("bk.core").bk(config.window.size, config.window.position)
 			vim.notify("no ePub file path", vim.log.levels.ERROR)
 		else
 			local epub_path = vim.fn.expand(opts.fargs[1])
