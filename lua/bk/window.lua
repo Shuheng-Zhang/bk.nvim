@@ -6,6 +6,8 @@ local position = {
 	BOTTOM_CENTER = "BOTTOM_CENTER",
 }
 
+local win_bottom_prefix = 3
+
 local function get_win_pos(win_size, win_position)
 	local parent_win = vim.api.nvim_list_uis()[1]
 
@@ -23,13 +25,13 @@ local function get_win_pos(win_size, win_position)
 	local win_row = 0
 	if win_position == position.BOTTOM_RIGHT then
 		win_col = parent_win.width - width - 1
-		win_row = parent_win.height - height - 2
+		win_row = parent_win.height - height - win_bottom_prefix
 	elseif win_position == position.BOTTOM_LEFT then
 		win_col = 1
-		win_row = parent_win.height - height - 2
+		win_row = parent_win.height - height - win_bottom_prefix
 	elseif win_position == position.BOTTOM_CENTER then
 		win_col = math.floor((parent_win.width - width) / 2)
-		win_row = parent_win.height - height - 2
+		win_row = parent_win.height - height - win_bottom_prefix
 	else
 		win_col = math.floor((parent_win.width - width) / 2)
 		win_row = math.floor((parent_win.height - height) / 2)
