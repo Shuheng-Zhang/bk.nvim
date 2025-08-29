@@ -90,4 +90,19 @@ function M.add_recent(epub_path)
 	end
 end
 
+function M.clear_recent()
+	local file_handle, err = io.open(bk_recent, "w")
+	if err then
+		vim.notify("BK_RECENT_ERR: " .. err, vim.log.levels.ERROR)
+		return
+	end
+
+	if file_handle then
+		file_handle:write()
+		file_handle:flush()
+		file_handle:close()
+		vim.notify("BK_RECENT: Cleared recently read files")
+	end
+end
+
 return M

@@ -31,6 +31,12 @@ function M.init_cmd(config)
 			end
 		end
 	end, { nargs = "*", complete = "file", desc = "Open ePub reader" })
+
+	vim.api.nvim_create_user_command("BkRecentClear", function()
+		if config.recent then
+			core.clear_recent()
+		end
+	end, { desc = "Clear recently read file" })
 end
 
 return M
