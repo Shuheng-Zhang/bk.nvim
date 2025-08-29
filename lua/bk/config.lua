@@ -4,6 +4,7 @@ local M = {
 			size = 0.4,
 			position = "BOTTOM_RIGHT",
 		},
+		recent = true,
 	},
 }
 
