@@ -58,6 +58,24 @@ function M.open_bk_win(win_range_size, win_position)
 	vim.wo.cursorcolumn = false
 	vim.wo.signcolumn = "no"
 
+	vim.api.nvim_create_autocmd("VimResized", {
+		callback = function()
+			vim.defer_fn(function()
+				if not vim.api.nvim_win_is_valid(BK_WINDOW) then
+					return
+				end
+				local new_width, new_height, new_col, new_row = get_win_pos(win_range_size, win_position)
+				vim.api.nvim_win_set_config(BK_WINDOW, {
+					width = new_width,
+					height = new_height,
+					relative = "editor",
+					row = new_row,
+					col = new_col,
+				})
+			end, 20)
+		end,
+	})
+
 	return BK_WINDOW, BK_BUFFER
 end
 
