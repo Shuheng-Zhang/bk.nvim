@@ -36,7 +36,6 @@ function M.bk(win_range_size, win_position, epub_path)
 	vim.schedule(function()
 		vim.fn.jobstart(cmd, { term = true, on_exit = on_exit })
 	end)
-	vim.cmd("startinsert")
 end
 
 function M.prepare_recent()

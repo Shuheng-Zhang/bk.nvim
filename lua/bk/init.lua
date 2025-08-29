@@ -10,6 +10,11 @@ function M.setup(opt)
 		bk_core.prepare_recent()
 	end
 	cmd.init_cmd(config)
+
+	local ok, m_telescope = pcall(require, "telescope")
+	if ok then
+		m_telescope.load_extension("bk_telescope")
+	end
 end
 
 return M
